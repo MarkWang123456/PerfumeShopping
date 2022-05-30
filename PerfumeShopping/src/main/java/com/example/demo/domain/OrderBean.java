@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Data;
 
@@ -31,24 +33,28 @@ public class OrderBean {
 	private boolean Order_PayOrNot;
 	
 	@Column(name = "Order_PayTime")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date Order_PayTime;
 	
 	@Column(name = "Order_ShippingOrNot")
 	private boolean Order_ShippingOrNot;
 	
 	@Column(name = "Order_ShippingTime")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date Order_ShippingTime;
 	
 	@Column(name = "Order_ReceiptOrNot")
 	private boolean Order_ReceiptOrNot;
 	
 	@Column(name = "Order_ReceiptTime")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date Order_ReceiptTime;
 	
 	@Column(name = "Order_DeliveryNumber")
 	private String Order_DeliveryNumber;
 	
 	@Column(name = "Order_OrderTime")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date Order_OrderTime;
 	
 	@Column(name = "Order_Address")

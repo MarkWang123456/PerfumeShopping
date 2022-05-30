@@ -50,6 +50,7 @@ public class MemberBean {
 	private String Member_Password;
 	
 	@Column(name = "Member_CreationTime")
+	@Temporal(TemporalType.TIMESTAMP)
 	private java.util.Date Member_CreationTime;
 	
 	@Column(name = "Member_ChangTime")
