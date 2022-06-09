@@ -1,10 +1,17 @@
 package com.example.demo.domain;
 
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,44 +25,47 @@ public class MemberBean {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "Member_Id")
-	private Integer Member_Id; 
+	@Column(name = "MBid")
+	private Integer mbid; 
 	
-	@Column(name = "Member_Name")
-	private String Member_Name;
+	@Column(name = "name")
+	private String name;
 	
-	@Column(name = "Member_Email")
-	private String Member_Email;
+	@Column(name = "email")
+	private String email;
 	
-	@Column(name = "Member_Google")
-	private String Member_Google;
+	@Column(name = "google")
+	private String google;
 	
-	@Column(name = "Member_Fb")
-	private String Member_Fb;
+	@Column(name = "fb")
+	private String fb;
 	
-	@Column(name = "Member_Phone")
-	private String Member_Phone;
+	@Column(name = "phone")
+	private String phone;
 	
-	@Column(name = "Member_Sex")
-	private String Member_Sex;
+	@Column(name = "sex")
+	private String sex;
 	
-	@Column(name = "Member_birth")
+	@Column(name = "birth")
 	@Temporal(TemporalType.DATE)
-	private java.util.Date Member_birth;
+	private Date birth;
 	
-	@Column(name = "Member_Address")
-	private String Member_Address;
+	@Column(name = "address")
+	private String address;
 	
-	@Column(name = "Member_Password")
-	private String Member_Password;
+	@Column(name = "password")
+	private String password;
 	
-	@Column(name = "Member_CreationTime")
+	@Column(name = "creationtime")
 	@Temporal(TemporalType.TIMESTAMP)
-	private java.util.Date Member_CreationTime;
+	private Date creationtime;
 	
-	@Column(name = "Member_ChangTime")
+	@Column(name = "changtime")
 	@Temporal(TemporalType.TIMESTAMP)
-	private java.util.Date Member_ChangTime;
+	private Date changtime;
 	
+	
+	@OneToMany(mappedBy = "memberBean" )
+	private List<OrderBean> orderBeans;
 	
 }

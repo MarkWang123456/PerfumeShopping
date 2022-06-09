@@ -20,61 +20,53 @@ public class CommodityBean {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "Commodity_Id")
-	private Integer Commodity_Id; 
+	@Column(name = "COMId")
+	private Integer comid; 
 	
-	@Column(name = "Commodity_Name")
-	private String Commodity_Name;
+	@Column(name = "name")
+	private String name;
 	
-	@Column(name = "Commodity_Brand")
-	private String Commodity_Brand;
+	@Column(name = "brand")
+	private String brand;
 	
-	@Column(name = "Commodity_Category")
-	private String Commodity_Category;
+	@Column(name = "category")
+	private String category;
 	
-	@Column(name = "Commodity_Tonality")
-	private String Commodity_Tonality;
+	@Column(name = "tonality")
+	private String tonality;
 	
-	@Column(name = "Commodity_Specification")
-	private String Commodity_Specification;
+	@Column(name = "specification")
+	private String specification;
 	
-	@Column(name = "Commodity_Price")
-	private Integer Commodity_Price;
+	@Column(name = "price")
+	private Integer price;
 	
-	@Column(name = "Commodity_SalesVolume")
-	private String Commodity_SalesVolume;
+	@Column(name = "salesvolume")
+	private String salesVolume;
 	
-	@Column(name = "Commodity_Inventory")
-	private String Commodity_Inventory;
+	@Column(name = "inventory")
+	private Integer inventory;
 	
-	@Column(name = "Commodity_TopNote")
-	private String Commodity_TopNote;
+	@Column(name = "topnote")
+	private String topnote;
 	
-	@Column(name = "Commodity_MiddleNote")
-	private String Commodity_MiddleNote;
+	@Column(name = "middlenote")
+	private String middlenote;
 	
-	@Column(name = "Commodity_BaseNote")
-	private String Commodity_BaseNote;
+	@Column(name = "basenote")
+	private String basenote;
 	
-	@Column(name = "Commodity_ListingStartTime")
+	@Column(name = "listingstarttime")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date Commodity_ListingStartTime;
+	private Date listingstarttime;
 	
-	@Column(name = "Commodity_TakedownTime")
+	@Column(name = "takedowntime")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date Commodity_TakedownTime;
+	private Date takedowntime;
 	
-	@Column(name = "Commodity_Discount")
-	private Integer Commodity_Discount;
+	@Column(name = "discountid")
+	private Integer discountid;
 	
-	@Column(name = "Commodity_DiscountBeginTime")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date Commodity_DiscountBeginTime;
-	
-	@Column(name = "Commodity_DiscountEndTime")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date Commodity_DiscountEndTime;	
-	
-	@Column(name = "Commodity_Interduce")
-	private String Commodity_Interduce;
+	@Column(name = "interduce")
+	private String interduce;
 }

@@ -2,11 +2,14 @@ package com.example.demo.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,48 +23,54 @@ public class OrderBean {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "Order_Id")
-	private Integer Order_Id;
+	@Column(name = "orderid")
+	private Integer orderid;
 	
-	@Column(name = "Member_Id")
-	private Integer Member_Id;	
+	@Column(insertable=false,updatable=false)
+	private Integer mbid;	
 	
-	@Column(name = "PromoCode_Id")
-	private Integer PromoCode_Id;
+	@Column(name = "promocodeid")
+	private Integer promocodeid;
 	
-	@Column(name = "Order_PayOrNot")
-	private boolean Order_PayOrNot;
+	@Column(name = "fulldeliveryid")
+	private Integer fulldeliveryid;
 	
-	@Column(name = "Order_PayTime")
+	@Column(name = "payornot")
+	private boolean payornot;
+	
+	@Column(name = "paytime")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date Order_PayTime;
+	private Date paytime;
 	
-	@Column(name = "Order_ShippingOrNot")
-	private boolean Order_ShippingOrNot;
+	@Column(name = "shippingornot")
+	private boolean shippingornot;
 	
-	@Column(name = "Order_ShippingTime")
+	@Column(name = "shippingtime")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date Order_ShippingTime;
+	private Date shippingtime;
 	
-	@Column(name = "Order_ReceiptOrNot")
-	private boolean Order_ReceiptOrNot;
+	@Column(name = "receiptornot")
+	private boolean receiptornot;
 	
-	@Column(name = "Order_ReceiptTime")
+	@Column(name = "receipttime")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date Order_ReceiptTime;
+	private Date receipttime;
 	
-	@Column(name = "Order_DeliveryNumber")
-	private String Order_DeliveryNumber;
+	@Column(name = "deliverynumber")
+	private String deliveryNumber;
 	
-	@Column(name = "Order_OrderTime")
+	@Column(name = "ordertime")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date Order_OrderTime;
+	private Date orderTime;
 	
-	@Column(name = "Order_Address")
-	private String Order_Address;
+	@Column(name = "address")
+	private String address;
 	
-	@Column(name = "Order_Phone")
-	private String Order_Phone;
+	@Column(name = "phone")
+	private String phone;
 	
+	@ManyToOne(cascade = CascadeType.PERSIST) //同時增加兩者
+	@JoinColumn(name = "mbid")
+	private MemberBean memberBean;
 	
 }
