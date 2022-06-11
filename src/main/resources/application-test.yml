@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://192.168.86.129:5432/delicious
+    driver-class-name: org.postgresql.Driver
+    username: harry
+    password: harry1011
+    maximum-pool-size: 10
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: lazy
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+debug: true

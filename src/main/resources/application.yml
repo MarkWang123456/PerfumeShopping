@@ -1,0 +1,36 @@
+spring:
+  jpa:
+    generate-ddl: false
+    show-sql: false
+    properties:
+      javax:
+        persistence:
+          validation:
+            mode: none
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+      write-dates-as-timestamps: false
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  profiles:
+    active: test
+  session:
+    store-type: none
+  servlet:
+    multipart:
+      max-file-size: 40MB
+      max-request-size: 50MB
+  jmx:
+    enabled: false
+  web:
+    resources:
+      cache:
+        period: 86400s
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+logging:
+  level:
+    org:
+      hibernate: FATAL
