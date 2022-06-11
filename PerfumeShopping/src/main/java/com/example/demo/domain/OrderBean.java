@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -69,7 +70,7 @@ public class OrderBean {
 	@Column(name = "phone")
 	private String phone;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST) //同時增加兩者
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) //同時增加兩者
 	@JoinColumn(name = "mbid")
 	private MemberBean memberBean;
 	
