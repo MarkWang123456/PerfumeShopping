@@ -22,44 +22,44 @@ public class MemberBean {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "MBid")
-	private Integer mbid; 
+	@Column(name = "IDMEMBER")
+	private Integer idMember; 
 	
-	@Column(name = "name")
+	@Column(name = "NAME")
 	private String name;
 	
-	@Column(name = "email")
+	@Column(name = "EMAIL")
 	private String email;
 	
-	@Column(name = "google")
+	@Column(name = "GOOGLE")
 	private String google;
 	
-	@Column(name = "fb")
+	@Column(name = "FB")
 	private String fb;
 	
-	@Column(name = "phone")
+	@Column(name = "PHONE")
 	private String phone;
 	
-	@Column(name = "sex")
+	@Column(name = "SEX")
 	private String sex;
 	
-	@Column(name = "birth")
+	@Column(name = "BIRTH")
 	@Temporal(TemporalType.DATE)
 	private Date birth;
 	
-	@Column(name = "address")
+	@Column(name = "ADDRESS")
 	private String address;
 	
-	@Column(name = "password")
+	@Column(name = "PASSWORD")
 	private String password;
 	
-	@Column(name = "creationtime")
+	@Column(name = "CREATIONTIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date creationtime;
+	private Date creationTime;
 	
-	@Column(name = "changtime")
+	@Column(name = "CHANGTIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date changtime;
+	private Date changTime;
 	
 	
 	@OneToMany(mappedBy = "memberBean" )

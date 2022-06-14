@@ -19,59 +19,56 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "ORDER")
+@Table(name = "O_TABLE")
 public class OrderBean {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "orderid")
-	private Integer orderid;
+	@Column(name = "IDORDER")
+	private Integer idOrder;
 	
-	@Column(insertable=false,updatable=false)
-	private Integer mbid;	
-	
-	@Column(name = "promocodeid")
+	@Column(name = "PROMOCODEID")
 	private Integer promocodeid;
 	
-	@Column(name = "fulldeliveryid")
+	@Column(name = "FULLDELIVERYID")
 	private Integer fulldeliveryid;
 	
-	@Column(name = "payornot")
+	@Column(name = "PAYORNOT")
 	private boolean payornot;
 	
-	@Column(name = "paytime")
+	@Column(name = "PAYTIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date paytime;
+	private Date payTime;
 	
-	@Column(name = "shippingornot")
-	private boolean shippingornot;
+	@Column(name = "SHIPPINGORNOT")
+	private boolean shippingOrNot;
 	
-	@Column(name = "shippingtime")
+	@Column(name = "SHIPPINGTIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date shippingtime;
+	private Date shippingTime;
 	
-	@Column(name = "receiptornot")
+	@Column(name = "RECEIPTORNOT")
 	private boolean receiptornot;
 	
-	@Column(name = "receipttime")
+	@Column(name = "RECEIPTTIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date receipttime;
+	private Date receiptTime;
 	
-	@Column(name = "deliverynumber")
+	@Column(name = "DELIVERYNUMBER")
 	private String deliveryNumber;
 	
-	@Column(name = "ordertime")
+	@Column(name = "ORDERTIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date orderTime;
 	
-	@Column(name = "address")
+	@Column(name = "ADDRESS")
 	private String address;
 	
-	@Column(name = "phone")
+	@Column(name = "PHONE")
 	private String phone;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) //同時增加兩者
-	@JoinColumn(name = "mbid")
+	@ManyToOne
+	@JoinColumn(name = "IDMEMBER")
 	private MemberBean memberBean;
 	
 }

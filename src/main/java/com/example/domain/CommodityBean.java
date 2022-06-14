@@ -20,53 +20,53 @@ public class CommodityBean {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "COMId")
-	private Integer comid; 
+	@Column(name = "IDCOMMODITY")
+	private Integer idCommodity; 
 	
-	@Column(name = "name")
+	@Column(name = "NAME")
 	private String name;
 	
-	@Column(name = "brand")
+	@Column(name = "BRAND")
 	private String brand;
 	
-	@Column(name = "category")
+	@Column(name = "CATEGORY")
 	private String category;
 	
-	@Column(name = "tonality")
+	@Column(name = "TONALITY")
 	private String tonality;
 	
-	@Column(name = "specification")
+	@Column(name = "SPECIFICATION")
 	private String specification;
 	
-	@Column(name = "price")
+	@Column(name = "PRICE")
 	private Integer price;
 	
-	@Column(name = "salesvolume")
+	@Column(name = "SALESVOLUME")
 	private String salesVolume;
 	
-	@Column(name = "inventory")
+	@Column(name = "INVENTORY")
 	private Integer inventory;
 	
-	@Column(name = "topnote")
+	@Column(name = "TOPNOTE")
 	private String topnote;
 	
-	@Column(name = "middlenote")
+	@Column(name = "MIDDLENOTE")
 	private String middlenote;
 	
-	@Column(name = "basenote")
+	@Column(name = "BASENOTE")
 	private String basenote;
 	
-	@Column(name = "listingstarttime")
+	@Column(name = "LISTINGSTARTTIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date listingstarttime;
+	private Date listingStartTime;
 	
-	@Column(name = "takedowntime")
+	@Column(name = "TAKEDOWNTIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date takedowntime;
+	private Date takeDownTime;
 	
-	@Column(name = "discountid")
+	@Column(name = "DISCOUNTID")
 	private Integer discountid;
 	
-	@Column(name = "interduce")
-	private String interduce;
+	@Column(name = "INTRODUCE")
+	private String introduce;
 }

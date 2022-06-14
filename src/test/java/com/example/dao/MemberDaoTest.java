@@ -35,7 +35,7 @@ public class MemberDaoTest {
 		memberBean.setSex("male");
 		memberBean.setAddress("高雄");
 		memberBean.setPassword("123");
-		memberBean.setCreationtime(new Date());
+		memberBean.setCreationTime(new Date());
 		this.dao.save(memberBean);
 		
 	}
@@ -55,12 +55,7 @@ public class MemberDaoTest {
 			System.out.println(findidOptional);
 		}
 	
-	
-	
-	@Test
-	public void testupdateMemberNameById() {
-		dao.updateMemberNameById("mark", 3);
-	}
+
 	
 	
 	}

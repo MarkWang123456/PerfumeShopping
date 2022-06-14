@@ -16,21 +16,21 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "Shoppingcart")
+@Table(name = "SHOPPINGCART")
 public class ShoppingCartBean {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "SCId")
-	private Integer scid; 
+	@Column(name = "IDSHOPPINGCART")
+	private Integer idShoppingCart; 
 	
-	@Column(name = "COMId")
-	private Integer comid;	
+	@Column(name = "IdCOMMODITY")
+	private Integer idCommodity;	
 	
-	@Column(name = "number")
+	@Column(name = "NUMBER")
 	private Integer number;
 	
-	@Column(name = "updatetime")
+	@Column(name = "UPDATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updateTime;
 }
