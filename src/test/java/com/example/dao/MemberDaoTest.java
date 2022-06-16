@@ -1,7 +1,10 @@
 package com.example.dao;
 
 import com.example.dao.impl.MemberDao;
+import com.example.dao.impl.OrderDao;
 import com.example.domain.MemberBean;
+import com.example.domain.OrderBean;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,40 +26,54 @@ public class MemberDaoTest {
 	
 	@Resource
     private MemberDao dao;
-	
 
+	@Resource
+	private OrderDao orderDao;
+	
+//	@Test
+//	public void testSave() {
+//		MemberBean memberBean=new MemberBean();
+//		memberBean.setName("Mark");
+//		memberBean.setEmail("a0912753024@gmail.com");
+//		memberBean.setPhone("0912753024");
+//		memberBean.setBirth(new Date());
+//		memberBean.setSex("male");
+//		memberBean.setAddress("高雄");
+//		memberBean.setPassword("123");
+//		memberBean.setCreationTime(new Date());
+//		this.dao.save(memberBean);
+//		
+//	}
+	
+//	@Test
+//	public void testfindbyName() {
+//		List<MemberBean> list=dao.findByName("Mark");
+//		for(MemberBean memberBean:list) {
+//			System.out.println(memberBean);
+//		}
+//	}
+	
+//	@Test
+//	public void testfindbyID() {
+//		Optional<MemberBean> findidOptional=dao.findById(3);
+//		
+//			System.out.println(findidOptional);
+//		}
+	
+//	@Test
+//	public void testfindone() {
+//		MemberBean bean=dao.findByIdMember(3);
+//		
+//		System.out.println(bean);
+//	}
+	
 	@Test
-	public void testSave() {
-		MemberBean memberBean=new MemberBean();
-		memberBean.setName("Mark");
-		memberBean.setEmail("a0912753024@gmail.com");
-		memberBean.setPhone("0912753024");
-		memberBean.setBirth(new Date());
-		memberBean.setSex("male");
-		memberBean.setAddress("高雄");
-		memberBean.setPassword("123");
-		memberBean.setCreationTime(new Date());
-		this.dao.save(memberBean);
-		
+	public void testUpdate() {
+		MemberBean bean=dao.findByIdMember(3);
+		bean.setEmail("a0912753024@gmail.com");
+		dao.save(bean);
+		System.out.println(bean);
 	}
-	
-	@Test
-	public void testfindbyName() {
-		List<MemberBean> list=dao.findByName("Mark");
-		for(MemberBean memberBean:list) {
-			System.out.println(memberBean);
-		}
-	}
-	
-	@Test
-	public void testfindbyID() {
-		Optional<MemberBean> findidOptional=dao.findById(3);
-		
-			System.out.println(findidOptional);
-		}
-	
-
-	
 	
 	}
 	

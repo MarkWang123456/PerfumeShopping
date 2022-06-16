@@ -1,8 +1,10 @@
 package com.example.dao;
 
 import java.util.Date;
+import java.util.Optional;
 
 import javax.annotation.Resource;
+import javax.persistence.EntityNotFoundException;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -49,5 +51,12 @@ public class OrderTest {
 	        memberDao.save(memberBean);
 	        dao.save(orderBean);
 		}
+		
+		@Test
+		public void testfindone() {
+			OrderBean bean=dao.findByIdOrder(18);
+			System.out.println(bean);
+		}
+	
 		
 	}

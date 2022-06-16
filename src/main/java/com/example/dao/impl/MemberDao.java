@@ -22,7 +22,7 @@ public interface MemberDao extends JpaRepository<MemberBean, Integer>,JpaSpecifi
 	
 	Optional<MemberBean> findById(Integer id);
 	
-	
+	MemberBean findByIdMember(Integer idMember);
 	
 	@org.springframework.data.jpa.repository.Modifying  //需要執行一個更新操作
 	@Query("update MemberBean set name = :name where mbid = :mbid")
