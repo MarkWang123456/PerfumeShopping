@@ -3,7 +3,7 @@ package com.example.dao.impl;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.domain.MemberBean;
+import com.example.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
@@ -16,17 +16,17 @@ import org.springframework.stereotype.Repository;
 //*          *封裝了複雜查詢（分頁)
 
 @Repository
-public interface MemberDao extends JpaRepository<MemberBean, Integer>,JpaSpecificationExecutor<MemberBean>{
+public interface MemberDao extends JpaRepository<Member, Integer>,JpaSpecificationExecutor<Member>{
 	
-	List<MemberBean> findByName(String name);
+	List<Member> findByName(String name);
 	
-	Optional<MemberBean> findById(Integer id);
+	Optional<Member> findById(Integer id);
 	
-	MemberBean findByIdMember(Integer idMember);
+	Member findByIdMember(Integer idMember);
 	
-	@org.springframework.data.jpa.repository.Modifying  //需要執行一個更新操作
-	@Query("update MemberBean set name = :name where mbid = :mbid")
-	void updateMemberNameById(String name,Integer mbid);
+//	@org.springframework.data.jpa.repository.Modifying  //需要執行一個更新操作
+//	@Query("update Member set name = :name where mbid = :mbid")
+//	void updateMemberNameById(String name,Integer mbid);
 
 	  
 }

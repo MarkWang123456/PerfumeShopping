@@ -2,21 +2,15 @@ package com.example.dao;
 
 import com.example.dao.impl.MemberDao;
 import com.example.dao.impl.OrderDao;
-import com.example.domain.MemberBean;
-import com.example.domain.OrderBean;
+import com.example.domain.Member;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
 
 
 @SpringBootTest
@@ -69,7 +63,7 @@ public class MemberDaoTest {
 	
 	@Test
 	public void testUpdate() {
-		MemberBean bean=dao.findByIdMember(3);
+		Member bean=dao.findByIdMember(3);
 		bean.setEmail("a0912753024@gmail.com");
 		dao.save(bean);
 		System.out.println(bean);
