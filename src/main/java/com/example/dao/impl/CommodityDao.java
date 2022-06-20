@@ -7,12 +7,12 @@ import com.example.domain.Commodity;
 
 
 @Repository
-public interface CommodityDao extends JpaRepository<Commodity, Integer> {
+public interface CommodityDao extends JpaRepository<Commodity, Long> {
 	
-	Commodity findByIdCommodity(Integer idCommodity);
+	Commodity findByName(String Name);
+//	
+//	default void deleteByIdCommodity(Integer IdCommodity) {
+		
 	
-	default void deleteByIdCommodity(Integer IdCommodity) {
-		
-		
 	}
-}
+

@@ -7,10 +7,13 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 import com.sun.istack.NotNull;
 import lombok.Data;
 
 @Entity
+@EntityScan
 @Data
 @Table(name = "t_member")
 public class Member {

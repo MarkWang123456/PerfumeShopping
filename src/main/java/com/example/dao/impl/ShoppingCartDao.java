@@ -6,13 +6,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ShoppingCartDao extends JpaRepository<ShoppingCart, Integer> {
+public interface ShoppingCartDao extends JpaRepository<ShoppingCart, Long> {
 
-    ShoppingCart findByIdCommodity(Integer idCommodity);
-
-    ShoppingCart findByMemberBean(Member memberBean);
-
-     void deleteByIdShoppingCart(Integer idShoppingCart);
-
-    ShoppingCart findByIdShoppingCart(Integer idShoppingCart);
+	  
+//
+//    ShoppingCart findByMemberBean(Member memberBean);
+//
+//     void deleteByIdShoppingCart(Integer idShoppingCart);
+//
+//    ShoppingCart findByIdShoppingCart(Integer idShoppingCart);
 }

@@ -16,13 +16,10 @@ import org.springframework.stereotype.Repository;
 //*          *封裝了複雜查詢（分頁)
 
 @Repository
-public interface MemberDao extends JpaRepository<Member, Integer>,JpaSpecificationExecutor<Member>{
+public interface MemberDao extends JpaRepository<Member, Long>,JpaSpecificationExecutor<Member>{
 	
-	List<Member> findByName(String name);
-	
-	Optional<Member> findById(Integer id);
-	
-	Member findByIdMember(Integer idMember);
+//	List<Member> findByName(String name);
+    Optional<Member> findById(Long id);
 	
 //	@org.springframework.data.jpa.repository.Modifying  //需要執行一個更新操作
 //	@Query("update Member set name = :name where mbid = :mbid")

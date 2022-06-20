@@ -33,5 +33,5 @@ public class ShoppingCart {
 
 	@ManyToMany(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
 	@JoinTable(name = "t_shoppingcart_commodity", joinColumns = @JoinColumn(name = "id_shoppingcart"), inverseJoinColumns = @JoinColumn(name = "id_commodity"))
-	private Set<Commodity> commodities = new HashSet<Commodity>();
+	private List<Commodity> commodities = new ArrayList<Commodity>();
 }

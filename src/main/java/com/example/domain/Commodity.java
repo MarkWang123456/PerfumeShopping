@@ -14,18 +14,17 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.ToString;
 
 @Entity
 @Data
-//@ToString(exclude= {"orderBeans"})
+@ToString(exclude= {"orders"})
 @Table(name = "t_commodity")
 public class Commodity {
 	
-	public Commodity(){
-		this.orders = new HashSet<>();
-	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -77,9 +76,10 @@ public class Commodity {
 	@Column(name = "introduce")
 	private String introduce;
 	
-	@ManyToMany(mappedBy = "commodities",fetch = FetchType.EAGER)
-	private Set<Order> orders =new HashSet<Order>();
 
+	@ManyToMany(mappedBy = "commodities",fetch = FetchType.EAGER)
+	private List<Order> orders =new ArrayList<>();
+	
 	@ManyToMany(mappedBy = "commodities", fetch = FetchType.EAGER)
 	private Set<ShoppingCart> shoppingCarts = new HashSet<ShoppingCart>();
 }

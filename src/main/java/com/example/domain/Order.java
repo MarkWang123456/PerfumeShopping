@@ -18,12 +18,14 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.ToString;
 
 @Entity
 @Data
-@ToString(exclude= {"member"})
+@ToString(exclude= {"member","commodities"})
 @Table(name = "t_order")
 public class Order {
 	
@@ -62,6 +64,9 @@ public class Order {
 	@Column(name = "order_time")
 	private LocalDate orderTime;
 	
+	@Column(name = "purchase_number")
+	private Integer PurchaseNumber;
+	
 	@Column(name = "address")
 	private String address;
 	
@@ -72,9 +77,10 @@ public class Order {
 	@JoinColumn(name = "id_member")
 	private Member member;
 
-	@ManyToMany(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
+	
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinTable(name = "t_order_commodity",joinColumns = @JoinColumn(name="id_order"),inverseJoinColumns = @JoinColumn(name="id_commodity"))
-	private Set<Commodity> commodities = new HashSet<Commodity>();
+	private List<Commodity> commodities = new ArrayList<>();
 	
 
 }

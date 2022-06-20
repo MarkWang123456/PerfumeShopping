@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.dao.impl.CommodityDao;
 import com.example.dao.impl.OrderDao;
 import com.example.domain.Commodity;
+import com.example.domain.Member;
 import com.example.domain.Order;
 
 @SpringBootTest
@@ -33,29 +34,14 @@ public class CommodityTest {
 //		Commodity commodityBean=new Commodity();
 //		commodityBean.setName("蒂芬妮香水");
 //		commodityBean.setBrand("蒂芬妮");
-//		commodityBean.setCategory("女香");
+//		commodityBean.setCategory("男香");
+//		commodityBean.setPrice(700);
 //
-//		Order orderBean1=new Order();
-//		orderBean1.setAddress("台南市");
-//		orderBean1.setPhone("0912199365");
-//
-//		Order orderBean2=new Order();
-//		orderBean2.setAddress("台北市");
-//		orderBean2.setPhone("0912199700");
-//
-//		commodityBean.getOrderBeans().add(orderBean1);
-//		commodityBean.getOrderBeans().add(orderBean2);
-//		orderBean1.getCommodityBeans().add(commodityBean);
-//		orderBean2.getCommodityBeans().add(commodityBean);
-//
-//		orderDao.save(orderBean2);
-//		orderDao.save(orderBean1);
 //		commodityDao.save(commodityBean);
-//
 //	}
 //
-//	@Test
-//	public void testFind() {
+//	@Test //新增商品
+//	public void testAdd() {
 //		CommodityBean commodityBean=commodityDao.findByIdCommodity(12);
 //		System.out.println(commodityBean.getName());
 //		List<OrderBean> orderBeans=commodityBean.getOrderBeans();
@@ -63,10 +49,37 @@ public class CommodityTest {
 //	}
 	
 	
-//	@Test
-//	public void testdetete() {
-//		commodityDao.deleteByIdCommodity(12);
+//	@Test  //用ID查詢商品
+//	public void testFindById() {
+//		System.out.println(commodityDao.findById(1L).get());
 //		
 //	}
+	
+//	@Test 
+//	@Rollback(false)  //修改商品
+//	public void testUpdateCommodity() {
+//		Commodity expected= commodityDao.findById(1L).get();
+//		expected.setPrice(9999);
+//		commodityDao.save(expected);		
+//	}
+	
+//	@Test  //刪除商品
+//	@Rollback(false)
+//	public void testDeleteById() {
+//		commodityDao.deleteById(1L);
+//	}
+	
+//	@Test //商品名稱查詢//
+//	public void testFindByName() {
+//		System.out.println(commodityDao.findByName("蒂芬妮香水"));
+//	}
+	
+	
+//	@Test //查訂單買了多少數量//
+//	public void testFindBuyHowManyByCommodity() {
+//		Integer purchaseNumber=orderDao.findById(3L).get().getPurchaseNumber();
+//		System.out.println(purchaseNumber);
+//	}
+
 	
 }
