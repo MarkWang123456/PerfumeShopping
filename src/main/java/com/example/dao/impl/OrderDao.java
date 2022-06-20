@@ -18,6 +18,7 @@ public interface OrderDao extends JpaRepository<Order, Long> {
 	
 	List<Order> findAllByPhone(String phone);
 	
+	List<Order> findAllByCommodities(Commodity commodity);
 
 //	void deleteByIdOrder(Integer idOrder);
 }

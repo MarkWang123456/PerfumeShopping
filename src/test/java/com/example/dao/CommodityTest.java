@@ -1,5 +1,10 @@
 package com.example.dao;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+
+import java.util.List;
+import java.util.Optional;
+
 import javax.annotation.Resource;
 
 import org.junit.jupiter.api.Test;
@@ -12,9 +17,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.dao.impl.CommodityDao;
 import com.example.dao.impl.OrderDao;
+import com.example.dao.impl.ShoppingCartDao;
 import com.example.domain.Commodity;
 import com.example.domain.Member;
 import com.example.domain.Order;
+import com.example.domain.ShoppingCart;
 
 @SpringBootTest
 @Transactional
@@ -27,6 +34,9 @@ public class CommodityTest {
 	
 	@Resource
 	private OrderDao orderDao;
+	
+	@Resource
+	private ShoppingCartDao shoppingCartDao;
 	
 //	@Test
 //	@Rollback(false)
@@ -66,6 +76,19 @@ public class CommodityTest {
 //	@Test  //刪除商品
 //	@Rollback(false)
 //	public void testDeleteById() {
+//		Commodity commodity= commodityDao.findById(1L).get();
+//		List<Order> orders=orderDao.findAllByCommodities(commodity);
+//		List<ShoppingCart> shoppingCarts=shoppingCartDao.findAllByCommodities(commodity);
+//		
+//		System.out.println(orders.size());
+//		for(int i=0; i<orders.size(); i++){
+//			orders.get(i).getCommodities().remove(commodity);
+//		}
+//		System.out.println(shoppingCarts.size());
+//		for(int i=0; i<shoppingCarts.size(); i++){
+//			shoppingCarts.get(i).getCommodities().remove(commodity);
+//		}
+//		
 //		commodityDao.deleteById(1L);
 //	}
 	

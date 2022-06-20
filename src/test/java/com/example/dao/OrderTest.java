@@ -49,12 +49,10 @@ public class OrderTest {
 			order.setPhone("0912753024");
 			order.setPurchaseNumber(20);
 			
-			List<Order> orderSet=new ArrayList<>();
-	
 			Optional<Member> member = memberDao.findById(2L);
 			Optional<Commodity> commodity=commodityDao.findById(1L);
 	        if(member.isPresent()) {        	
-	        	orderSet.add(order);
+	        	
 	        	order.setMember(member.get());
 	        	commodity.get().getOrders().add(order);
 	        	order.getCommodities().add(commodity.get());
@@ -90,12 +88,11 @@ public class OrderTest {
 //			System.out.println(order);
 //		}
 		
-//		@Test  //刪除訂單用ID
-//		@Rollback(false)
-//		public void testDeleteById() {
-//			orderDao.deleteById(1L);		
-//			assertNull(orderDao.findById(1L).get());
-//		}
+		@Test  //刪除訂單用ID
+		@Rollback(false)
+		public void testDeleteById() {
+			orderDao.deleteById(3L);		
+		}
 		
 //		@Test  //用中介TABLE查詢訂單中的商品
 //		public void testFindCommodityByOrder() {

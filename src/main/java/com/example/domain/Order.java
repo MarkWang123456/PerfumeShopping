@@ -78,7 +78,7 @@ public class Order {
 	private Member member;
 
 	
-	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "t_order_commodity",joinColumns = @JoinColumn(name="id_order"),inverseJoinColumns = @JoinColumn(name="id_commodity"))
 	private List<Commodity> commodities = new ArrayList<>();
 	
