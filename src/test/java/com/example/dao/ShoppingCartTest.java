@@ -44,14 +44,13 @@ public class ShoppingCartTest {
     public void testAdd() {
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.setNumber(17);
-        
-        List<ShoppingCart> shoppingCarts=new ArrayList<ShoppingCart>();
+ 
      
         Optional<Commodity> commodity1=commodityDao.findById(3L);      
         Optional<Member> member=memberDao.findById(2L);
 	
         if(member.isPresent()) {        	
-        	shoppingCarts.add(shoppingCart);
+        	
         	shoppingCart.setMember(member.get());
         	commodity1.get().getShoppingCarts().add(shoppingCart);
         	shoppingCart.getCommodities().add(commodity1.get());

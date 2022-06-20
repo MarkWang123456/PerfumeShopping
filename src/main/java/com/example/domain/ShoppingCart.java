@@ -31,7 +31,7 @@ public class ShoppingCart {
 	@JoinColumn(name = "id_member")
 	private Member member;
 
-	@ManyToMany(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "t_shoppingcart_commodity", joinColumns = @JoinColumn(name = "id_shoppingcart"), inverseJoinColumns = @JoinColumn(name = "id_commodity"))
 	private List<Commodity> commodities = new ArrayList<Commodity>();
 }

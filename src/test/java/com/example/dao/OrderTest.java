@@ -50,7 +50,7 @@ public class OrderTest {
 			order.setPurchaseNumber(20);
 			
 			Optional<Member> member = memberDao.findById(2L);
-			Optional<Commodity> commodity=commodityDao.findById(1L);
+			Optional<Commodity> commodity=commodityDao.findById(3L);
 	        if(member.isPresent()) {        	
 	        	
 	        	order.setMember(member.get());
@@ -88,11 +88,11 @@ public class OrderTest {
 //			System.out.println(order);
 //		}
 		
-		@Test  //刪除訂單用ID
-		@Rollback(false)
-		public void testDeleteById() {
-			orderDao.deleteById(3L);		
-		}
+//		@Test  //刪除訂單用ID
+//		@Rollback(false)
+//		public void testDeleteById() {
+//			orderDao.deleteById(3L);		
+//		}
 		
 //		@Test  //用中介TABLE查詢訂單中的商品
 //		public void testFindCommodityByOrder() {
