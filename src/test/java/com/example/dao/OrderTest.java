@@ -27,8 +27,8 @@ import com.example.domain.Order;
 
 
 @SpringBootTest
-	@Transactional
-	@ExtendWith(SpringExtension.class)
+@Transactional
+@ExtendWith(SpringExtension.class)
 public class OrderTest {
 
 		@Resource

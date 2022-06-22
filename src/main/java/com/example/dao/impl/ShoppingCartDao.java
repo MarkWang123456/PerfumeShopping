@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ShoppingCartDao extends JpaRepository<ShoppingCart, Long> {
 
-		List<ShoppingCart> findAllByCommodities(Commodity commodity);
+	List<ShoppingCart> findAllByCommodities(Commodity commodity);
 //
 //    ShoppingCart findByMemberBean(Member memberBean);
 //
