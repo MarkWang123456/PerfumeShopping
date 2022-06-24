@@ -17,10 +17,12 @@ import javax.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @Entity
 @Data
+@EqualsAndHashCode
 @ToString(exclude= {"orders"})
 @Table(name = "t_commodity")
 public class Commodity {

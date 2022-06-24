@@ -50,6 +50,7 @@ public class OrderTest {
 			order.setPurchaseNumber(20);
 			
 			Optional<Member> member = memberDao.findById(2L);
+	
 			Optional<Commodity> commodity=commodityDao.findById(3L);
 	        if(member.isPresent()) {        	
 	        	

@@ -1,10 +1,12 @@
 package com.example.dao;
 
 import com.example.dao.impl.CommodityDao;
+import com.example.dao.impl.CommodityNumberDao;
 import com.example.dao.impl.MemberDao;
 import com.example.dao.impl.OrderDao;
 import com.example.dao.impl.ShoppingCartDao;
 import com.example.domain.Commodity;
+import com.example.domain.CommodityNumber;
 import com.example.domain.Member;
 import com.example.domain.ShoppingCart;
 import org.junit.jupiter.api.Assertions;
@@ -17,8 +19,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
+import static org.hamcrest.CoreMatchers.nullValue;
+
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Optional;
 
 
@@ -38,27 +46,44 @@ public class ShoppingCartTest {
     
     @Resource
     private CommodityDao commodityDao;
+    
+    @Resource
+    private CommodityNumberDao commodityNumberDao;
 
     @Test  //新增購物車(同時增加會員及商品)
     @Rollback(false)
-    public void testAdd() {
+    public HashMap<Long, Integer> testAdd() {
         ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.setNumber(17);
- 
-     
-        Optional<Commodity> commodity1=commodityDao.findById(3L);      
+        CommodityNumber commodityNumber=new CommodityNumber();
+               
         Optional<Member> member=memberDao.findById(2L);
-	
-        if(member.isPresent()) {        	
-        	
-        	shoppingCart.setMember(member.get());
-        	commodity1.get().getShoppingCarts().add(shoppingCart);
-        	shoppingCart.getCommodities().add(commodity1.get());
-		
-    		shoppingCartDao.save(shoppingCart);	
-    		commodityDao.save(commodity1.get());        	
-        }   
+        
+        HashMap<Long, Integer> whatBuyHowMany = new HashMap<Long, Integer>();
+        whatBuyHowMany.put(2L, 7);
+        whatBuyHowMany.put(3L, 8);
+        whatBuyHowMany.put(4L, 9);
+       
+        List<Commodity> commodityList=new ArrayList<Commodity>(); //不要用null和collections.empty 會報錯
+          
+        for(Entry<Long, Integer> e : whatBuyHowMany.entrySet()) {
+        	Optional<Commodity> commodity=commodityDao.findById(e.getKey()); 
+        	commodityList.add(commodity.get());
+        }
+        if(member.isPresent()) {        	      	
+        	shoppingCart.setMember(member.get());  //建立會員關係
+        	for(Commodity commodity:commodityList) {  //建立商品關係
+        		commodity.getShoppingCarts().add(shoppingCart);
+        		shoppingCart.getCommodities().add(commodity);
+        		commodityDao.save(commodity);  
+        	}   		
 
+    		shoppingCartDao.save(shoppingCart);	
+    		
+//    		List<CommodityNumber> list=commodityNumberDao.findByShoppingcartId(4L);
+//    		for(Entry<Long, Integer> e : whatBuyHowMany.entrySet()) {
+//            	list.
+//            }
+        }   
     }
     
 //    @Test
