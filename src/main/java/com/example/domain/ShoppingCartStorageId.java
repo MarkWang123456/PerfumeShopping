@@ -11,18 +11,18 @@ import lombok.Data;
 
 @Embeddable
 @Data
-public class CommodityNumberId implements Serializable {  //生成中介表的複合鍵
+public class ShoppingCartStorageId implements Serializable {  //生成中介表的複合鍵
 	@Column(name = "id_shoppingcart")
 	private Long shoppingcartId;
 
 	@Column(name = "id_commodity")
 	private Long commodityId;
 	
-	public CommodityNumberId(){
+	public ShoppingCartStorageId(){
 		
 	}
 	
-	public CommodityNumberId(Long shoppingcartId, Long commodityId){
+	public ShoppingCartStorageId(Long shoppingcartId, Long commodityId){
 		this.shoppingcartId = shoppingcartId;
 		this.commodityId = commodityId;
 	}
@@ -40,7 +40,7 @@ public class CommodityNumberId implements Serializable {  //生成中介表的�
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CommodityNumberId other = (CommodityNumberId) obj;
+		ShoppingCartStorageId other = (ShoppingCartStorageId) obj;
 		return Objects.equals(shoppingcartId, other.shoppingcartId) && Objects.equals(commodityId, other.commodityId);
 	}
 	

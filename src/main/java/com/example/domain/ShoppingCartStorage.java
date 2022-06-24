@@ -20,10 +20,10 @@ import lombok.ToString;
 @Data
 @ToString(exclude= {"shoppingCart","commodity"})
 @Table(name="t_shoppingcart_commodity")
-public class CommodityNumber implements Serializable {
+public class ShoppingCartStorage implements Serializable {
 	
 	@EmbeddedId
-	private CommodityNumberId id;
+	private ShoppingCartStorageId id;
 	
 	@Column(name="number")
 	private Integer number ;
