@@ -44,11 +44,11 @@ public class MemberTest {
 		this.memberDao.save(expect);
 		
 		
-		Optional<Member> optional=memberDao.findById(10L);
-		if(optional.isPresent()) {
-			Member actual= optional.get();
-			Assertions.assertEquals(expect, actual);
-		}
+//		Optional<Member> optional=memberDao.findById(10L);
+//		if(optional.isPresent()) {
+//			Member actual= optional.get();
+//			Assertions.assertEquals(expect, actual);
+//		}
 	}
 	
 //	@Test //修改會員資料

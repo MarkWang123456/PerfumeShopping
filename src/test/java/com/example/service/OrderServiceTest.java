@@ -21,21 +21,21 @@ import com.example.domain.Order;
 @Transactional
 @ExtendWith(SpringExtension.class)
 public class OrderServiceTest {
-	@Resource
-	private OrderService orderService;
-	
-	@Resource
-	private MemberDao memberDao;
-	
-	@Resource
-	private OrderDao orderDao;
-
-	
-	@Test
-	public void testUseMemberFindAllOrder() {
-		List<Order> expected=orderService.useMemberFindAllOrder(memberDao.findById(2L).get());
-		System.out.println(expected);
-		List<Order> actual=orderDao.findAllByMember(memberDao.findById(2L).get());
-		Assertions.assertEquals(expected, actual);
-	}
+//	@Resource
+//	private OrderService orderService;
+//	
+//	@Resource
+//	private MemberDao memberDao;
+//	
+//	@Resource
+//	private OrderDao orderDao;
+//
+//	
+//	@Test
+//	public void testUseMemberFindAllOrder() {
+//		List<Order> expected=orderService.useMemberFindAllOrder(memberDao.findById(2L).get());
+//		System.out.println(expected);
+//		List<Order> actual=orderDao.findAllByMember(memberDao.findById(2L).get());
+//		Assertions.assertEquals(expected, actual);
+//	}
 }

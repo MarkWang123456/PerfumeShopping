@@ -77,17 +77,17 @@ public class CommodityTest {
 	@Rollback(false)
 	public void testDeleteById() {
 		Commodity commodity= commodityDao.findById(3L).get(); //用id找出要刪的商品
-		List<Order> orders=orderDao.findAllByCommodities(commodity);  //用Commodities找出所有與要刪的商品Id有關連的order
-		List<ShoppingCart> shoppingCarts=shoppingCartDao.findAllByCommodities(commodity);//用Commodities找出所有與要刪的商品Id有關連的shoppingCart
-		
-		System.out.println(orders.size());
-		for(int i=0; i<orders.size(); i++){
-			orders.get(i).getCommodities().remove(commodity);
-		}
-		System.out.println(shoppingCarts.size());
-		for(int i=0; i<shoppingCarts.size(); i++){
-			shoppingCarts.get(i).getCommodities().remove(commodity);
-		}
+//		List<Order> orders=orderDao.findAllByCommodities(commodity);  //用Commodities找出所有與要刪的商品Id有關連的order
+//		List<ShoppingCart> shoppingCarts=shoppingCartDao.findAllByCommodities(commodity);//用Commodities找出所有與要刪的商品Id有關連的shoppingCart
+//		
+//		System.out.println(orders.size());
+//		for(int i=0; i<orders.size(); i++){
+//			orders.get(i).getCommodities().remove(commodity);
+//		}
+//		System.out.println(shoppingCarts.size());
+//		for(int i=0; i<shoppingCarts.size(); i++){
+//			shoppingCarts.get(i).getCommodities().remove(commodity);
+//		}
 		
 		commodityDao.deleteById(3L);
 	}

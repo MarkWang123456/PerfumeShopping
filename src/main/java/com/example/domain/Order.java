@@ -80,7 +80,7 @@ public class Order {
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "t_order_commodity",joinColumns = @JoinColumn(name="id_order"),inverseJoinColumns = @JoinColumn(name="id_commodity"))
-	private List<Commodity> commodities = new ArrayList<>();
+	private Set<Commodity> commodities = new HashSet<>();
 	
 
 }

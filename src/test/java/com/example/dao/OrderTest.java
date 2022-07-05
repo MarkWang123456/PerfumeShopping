@@ -41,27 +41,27 @@ public class OrderTest {
 		private CommodityDao commodityDao;
 
 
-		@Test //新增訂單(同時加入會員及商品)
-		@Rollback(false)
-		public void testAddOrderAndMember() {
-			Order order = new Order();
-			order.setAddress("楠梓區");
-			order.setPhone("0912753024");
-			order.setPurchaseNumber(20);
-			
-			Optional<Member> member = memberDao.findById(2L);
-	
-			Optional<Commodity> commodity=commodityDao.findById(3L);
-	        if(member.isPresent()) {        	
-	        	
-	        	order.setMember(member.get());
-	        	commodity.get().getOrders().add(order);
-	        	order.getCommodities().add(commodity.get());
- 		
-	    		orderDao.save(order);	
-	    		commodityDao.save(commodity.get());        	
-	        }        	              
-		}
+//		@Test //新增訂單(同時加入會員及商品)
+//		@Rollback(false)
+//		public void testAddOrderAndMember() {
+//			Order order = new Order();
+//			order.setAddress("楠梓區");
+//			order.setPhone("0912753024");
+//			order.setPurchaseNumber(20);
+//			
+//			Optional<Member> member = memberDao.findById(2L);
+//	
+//			Optional<Commodity> commodity=commodityDao.findById(3L);
+//	        if(member.isPresent()) {        	
+//	        	
+//	        	order.setMember(member.get());
+//	        	commodity.get().getOrders().add(order);
+//	        	order.getCommodities().add(commodity.get());
+// 		
+//	    		orderDao.save(order);	
+//	    		commodityDao.save(commodity.get());        	
+//	        }        	              
+//		}
 		
 //		@Test
 //		public void findById() {

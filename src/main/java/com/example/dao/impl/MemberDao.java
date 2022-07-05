@@ -20,7 +20,8 @@ public interface MemberDao extends JpaRepository<Member, Long>,JpaSpecificationE
 	
 //	List<Member> findByName(String name);
     Optional<Member> findById(Long id);
-	
+	Member findByName(String name);
+    
 //	@org.springframework.data.jpa.repository.Modifying  //需要執行一個更新操作
 //	@Query("update Member set name = :name where mbid = :mbid")
 //	void updateMemberNameById(String name,Integer mbid);

@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -18,7 +19,7 @@ import com.example.domain.ShoppingCart;
 @SpringBootTest
 @Transactional
 @ExtendWith(SpringExtension.class)
-public class CommodityNumberTest {
+public class ShoppingCartStorageTest {
 	@Resource 
 	private ShoppingCartStorageDao shoppingCartStorageDao;
 	
@@ -28,7 +29,7 @@ public class CommodityNumberTest {
 	@Test
 	public void testfind() {
 		ShoppingCart shopping=shoppingCartDao.findById(4L).get();
-		List<ShoppingCartStorage> aaa=shoppingCartStorageDao.findByShoppingCart(shopping);
+		Set<ShoppingCartStorage> aaa=shoppingCartStorageDao.findByShoppingCart(shopping);
 		System.out.println(aaa);
 		}
 	

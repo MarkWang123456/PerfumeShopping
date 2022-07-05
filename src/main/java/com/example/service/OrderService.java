@@ -29,16 +29,16 @@ public class OrderService {
 	@Resource
 	private CommodityDao commodityDao;
 	
-	public List<Order> useMemberFindAllOrder(Member member){
-		List<Order> result=null;	
-			List<Order> orderList=orderDao.findAllByMember(member);
-			if (orderList!=null) {
-				result=orderList;
-			}else {
-				result=Collections.emptyList();
-			}		
-		return result;	
-	}
+//	public List<Order> useMemberFindAllOrder(Member member){
+//		List<Order> result=null;	
+//			List<Order> orderList=orderDao.findAllByMember(member);
+//			if (orderList!=null) {
+//				result=orderList;
+//			}else {
+//				result=Collections.emptyList();
+//			}		
+//		return result;	
+//	}
 	
 	public void updateStatus(Member member) {
 		

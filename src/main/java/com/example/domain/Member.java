@@ -2,19 +2,28 @@ package com.example.domain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 import lombok.Data;
+import lombok.ToString;
+
 
 @Entity
 @EntityScan
 @Data
+@ToString(exclude= {"roles","orders"})
+@JsonIgnoreProperties(value={"orders","shoppingCarts"})
 @Table(name = "t_member")
 public class Member {
 	
@@ -59,13 +68,21 @@ public class Member {
 	
 	
 	@OneToMany(mappedBy = "member" )
-	private List<Order> orders;
+	private Set<Order> orders;
 
 	@OneToMany(mappedBy = "member",cascade = CascadeType.PERSIST)
-	private List<ShoppingCart> shoppingCarts;
+	private Set<ShoppingCart> shoppingCarts;
 
 	public Member() {
-		this.orders = new ArrayList<>();
-		this.shoppingCarts = new ArrayList<>();
+		this.orders = new HashSet<>();
+		this.shoppingCarts = new HashSet<>();
 	}
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name="t_member_role", 
+		joinColumns = {@JoinColumn(name="id_member")}, 
+		inverseJoinColumns = {@JoinColumn(name="id_role")})
+    private Collection<Role> roles= new ArrayList<>();
+	
+
 }
