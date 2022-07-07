@@ -23,7 +23,10 @@ import lombok.RequiredArgsConstructor;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {  //建立一個 SecurityConfig 類別，作為安全設定時組態檔案
+	//WebSecurityConfigurerAdapter 有三個重要的configure 可以覆寫，
+	//一個與驗證相關的AuthenticationManagerBuilder，
+	//另外兩個是與Web 相關的HttpSecurity 和WebSecurity。
 	
 	private final UserDetailsService userDetailsService;
 	
@@ -33,6 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
 	}
+	//AuthenticationManagerBuilder : 用來配置全局的驗證資訊，也就是AuthenticationProvider 和UserDetailsService。
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -42,11 +46,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS); //無狀態的 session 政策，不使用 HTTPSession
 		http.authorizeHttpRequests().antMatchers("/PerfumeShopping/login/**","/token/refresh/**").permitAll();
 		http.authorizeHttpRequests().antMatchers(HttpMethod.GET, "/PerfumeShopping/member/**").hasAnyAuthority("ROLE_USER");
+		http.authorizeHttpRequests().antMatchers(HttpMethod.GET, "/PerfumeShopping/member/**").hasAnyAuthority("ROLE_ADMIN");
 		http.authorizeHttpRequests().antMatchers(HttpMethod.POST, "/PerfumeShopping/member/save/**").hasAnyAuthority("ROLE_ADMIN");
 		http.authorizeHttpRequests().anyRequest().permitAll();
 		http.addFilter(memberAuthenticationFilter);
 		http.addFilterBefore(new MemberAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
+//	HttpSecurity : 用來配置各種具體的驗證機制規則，
+//	如OpenIDLoginConfigurer、AnonymousConfigurer、FormLoginConfigurer、HttpBasicConfigurer 等。
 	
 	@Bean
 	@Override       //AuthenticationManager是一個靜態類別，可管理應用程式所使用的驗證模組

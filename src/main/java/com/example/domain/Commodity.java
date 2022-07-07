@@ -23,7 +23,7 @@ import lombok.ToString;
 @Entity
 @Data
 @EqualsAndHashCode
-@ToString(exclude= {"orders","shoppingCarts"})
+@ToString(exclude= {"orders","shoppingCarts"},doNotUseGetters = true)
 @Table(name = "t_commodity")
 public class Commodity {
 	
@@ -79,9 +79,9 @@ public class Commodity {
 	private String introduce;
 	
 
-	@ManyToMany(mappedBy = "commodities",fetch = FetchType.EAGER)
-	private Set<Order> orders =new HashSet<>();
-	
-	@ManyToMany(mappedBy = "commodities", fetch = FetchType.EAGER)
-	private Set<ShoppingCart> shoppingCarts = new HashSet<>();
+//	@ManyToMany(mappedBy = "commodities",fetch = FetchType.EAGER)
+//	private Set<Order> orders =new HashSet<>();
+//	
+//	@ManyToMany(mappedBy = "commodities", fetch = FetchType.EAGER)
+//	private Set<ShoppingCart> shoppingCarts = new HashSet<>();
 }

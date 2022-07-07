@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class MemberAuthorizationFilter extends OncePerRequestFilter{
+public class MemberAuthorizationFilter extends OncePerRequestFilter{ //這邊繼承OncePerRequestFilter，確保request只會被filter過濾一次
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

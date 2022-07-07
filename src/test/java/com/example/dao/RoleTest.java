@@ -18,24 +18,24 @@ import com.example.domain.Role;
 @Transactional
 @ExtendWith(SpringExtension.class)
 public class RoleTest {
-	
-	@Resource
-	private RoleDao roleDao;
-	
-	@Resource
-	private MemberDao memberDao;
-	
-	@org.junit.jupiter.api.Test
-	@Rollback(false)
-	public void testAddOrderAndMember() {
-		Role role=roleDao.findById(3L).get();
-		
-		Member member=memberDao.findById(7L).get();
-		
-		role.getMembers().add(member);
-		member.getRoles().add(role);
-		
-	
-		
-	}
+//	
+//	@Resource
+//	private RoleDao roleDao;
+//	
+//	@Resource
+//	private MemberDao memberDao;
+//	
+//	@org.junit.jupiter.api.Test
+//	@Rollback(false)
+//	public void testAddOrderAndMember() {
+//		Role role=roleDao.findById(3L).get();
+//		
+//		Member member=memberDao.findById(7L).get();
+//		
+//		role.getMembers().add(member);
+//		member.getRoles().add(role);
+//		
+//	
+//		
+//	}
 }

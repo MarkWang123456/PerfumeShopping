@@ -22,7 +22,7 @@ import lombok.ToString;
 @Entity
 @EntityScan
 @Data
-@ToString(exclude= {"roles","orders"})
+@ToString(exclude= {"roles","orders"},doNotUseGetters = true)
 @JsonIgnoreProperties(value={"orders","shoppingCarts"})
 @Table(name = "t_member")
 public class Member {

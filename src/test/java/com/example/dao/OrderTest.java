@@ -1,5 +1,6 @@
 package com.example.dao;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import java.util.ArrayList;
@@ -39,6 +40,10 @@ public class OrderTest {
 		
 		@Resource
 		private CommodityDao commodityDao;
+		
+		
+		
+		
 
 
 //		@Test //新增訂單(同時加入會員及商品)
@@ -136,8 +141,13 @@ public class OrderTest {
 //			
 //		}
 
-
-
+		@Test
+		public void testFindAllByMember() {
+			Member member=new Member();
+			member.setId(2L);
+			List<Order> orders=orderDao.findByMember(member);
+			assertNotNull(orders);
+		}
 
 		
 	}

@@ -27,22 +27,22 @@ public class MemberServiceTest {
 	@Resource
 	private MemberServiceImpl memberServiceImpl;
 	
+	@Test
+	@Rollback(false)
+	public void testaa() {
+		Member member=new Member();
+		member.setName("大中天");
+		member.setPassword("12345");	
+		memberServiceImpl.saveMember(member);	
+	}
+	
+	
 //	@Test
 //	@Rollback(false)
 //	public void test() {
-//		Member member=new Member();
-//		member.setName("大中天");
-//		member.setPassword("12345");	
-//		memberServiceImpl.saveMember(member);	
+//		
+//		memberServiceImpl.addRoleToMember("泓勛", "ROLE_USER");
 //	}
-	
-	
-	@Test
-	@Rollback(false)
-	public void test() {
-		
-		memberServiceImpl.addRoleToMember("大中天", "ROLE_USER");
-	}
 	
 	
 	

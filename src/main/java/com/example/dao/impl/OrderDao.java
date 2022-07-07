@@ -13,13 +13,17 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface OrderDao extends JpaRepository<Order, Long> {
 	
-	Order findByMember(Member member);
+//  Order findByMember(Member member);
 	
-	Set<Order> findAllByMember(Member member);
+	List<Order> findByMember(Member member);
+	
+//	Set<Order> findAllByMember(Member member);
 	
 	Set<Order> findAllByPhone(String phone);
 	
 	Set<Order> findAllByCommodities(Commodity commodity);
+	
+	
 
 //	void deleteByIdOrder(Integer idOrder);
 }

@@ -57,7 +57,7 @@ public class MemberController {
 	
 	@PostMapping("/member/save")
 	public ResponseEntity<Member>saveMember(@RequestBody Member member){
-		URI uri= URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/PerfumeShopping/member/save").toUriString());
+		URI uri= URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/PerfumeShopping/member/save").toUriString());  // 獲取.path("/PerfumeShopping/member/save")請求的URI
 		return ResponseEntity.created(uri).body(memberService.saveMember(member));
 	}
 	

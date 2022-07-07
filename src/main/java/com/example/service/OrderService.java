@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -29,16 +30,18 @@ public class OrderService {
 	@Resource
 	private CommodityDao commodityDao;
 	
-//	public List<Order> useMemberFindAllOrder(Member member){
-//		List<Order> result=null;	
-//			List<Order> orderList=orderDao.findAllByMember(member);
-//			if (orderList!=null) {
-//				result=orderList;
-//			}else {
-//				result=Collections.emptyList();
-//			}		
-//		return result;	
-//	}
+	
+	
+	public List<Order> useMemberFindAllOrder(Member member){
+		List<Order> result=null;	
+			List<Order> order=orderDao.findByMember(member);
+			if (null!=order) {
+				result=order;
+			}else {
+				result=Collections.emptyList();
+			}		
+		return result;	
+	}
 	
 	public void updateStatus(Member member) {
 		

@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@ToString(exclude= {"members"})
+@ToString(exclude= {"members"},doNotUseGetters = true)
 @Data
 @Table(name="t_role")
 @NoArgsConstructor
@@ -43,7 +43,7 @@ public class Role {
 		 private String name;
 		 
 		 
-		 @ManyToMany(mappedBy = "roles",fetch = FetchType.EAGER)
+		 @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
 		 @JsonIgnore
 		 private Collection<Member> members =new ArrayList<>();
 }

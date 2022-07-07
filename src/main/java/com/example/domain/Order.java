@@ -25,62 +25,60 @@ import lombok.ToString;
 
 @Entity
 @Data
-@ToString(exclude= {"member","commodities"})
+@ToString(exclude = { "member", "commodities", }, doNotUseGetters = true)
 @Table(name = "t_order")
 public class Order {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
-	
+
 //	@Column(name = "PROMOCODEID")
 //	private Integer promocodeid;
-	
+
 //	@Column(name = "FULLDELIVERYID")
 //	private Integer fulldeliveryid;
-	
+
 	@Column(name = "pay")
 	private boolean pay;
-	
+
 	@Column(name = "pay_time")
 	private LocalDate payTime;
-	
+
 	@Column(name = "shipping")
 	private boolean shipping;
-	
+
 	@Column(name = "shipping_time")
 	private LocalDate shippingTime;
-	
+
 	@Column(name = "receipt")
 	private boolean receipt;
-	
+
 	@Column(name = "receipt_time")
 	private LocalDate receiptTime;
-	
+
 	@Column(name = "delivery_number")
 	private String deliveryNumber;
-	
+
 	@Column(name = "order_time")
 	private LocalDate orderTime;
-	
+
 	@Column(name = "purchase_number")
 	private Integer PurchaseNumber;
-	
+
 	@Column(name = "address")
 	private String address;
-	
+
 	@Column(name = "phone")
 	private String phone;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_member")
 	private Member member;
 
-	
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "t_order_commodity",joinColumns = @JoinColumn(name="id_order"),inverseJoinColumns = @JoinColumn(name="id_commodity"))
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "t_order_commodity", joinColumns = @JoinColumn(name = "id_order"), inverseJoinColumns = @JoinColumn(name = "id_commodity"))
 	private Set<Commodity> commodities = new HashSet<>();
-	
 
 }

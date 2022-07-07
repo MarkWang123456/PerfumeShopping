@@ -3,6 +3,7 @@ package com.example.service;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -15,27 +16,37 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.dao.impl.MemberDao;
 import com.example.dao.impl.OrderDao;
+import com.example.domain.Member;
 import com.example.domain.Order;
 
 @SpringBootTest
 @Transactional
 @ExtendWith(SpringExtension.class)
 public class OrderServiceTest {
-//	@Resource
-//	private OrderService orderService;
-//	
-//	@Resource
-//	private MemberDao memberDao;
-//	
-//	@Resource
-//	private OrderDao orderDao;
-//
-//	
+	@Resource
+	private OrderService orderService;
+	
+	@Resource
+	private MemberDao memberDao;
+	
+	@Resource
+	private OrderDao orderDao;
+
+	
 //	@Test
 //	public void testUseMemberFindAllOrder() {
-//		List<Order> expected=orderService.useMemberFindAllOrder(memberDao.findById(2L).get());
+//		Set<Order> expected=orderService.useMemberFindAllOrder(memberDao.findById(2L).get());
 //		System.out.println(expected);
-//		List<Order> actual=orderDao.findAllByMember(memberDao.findById(2L).get());
+//		Set<Order> actual=orderDao.findAllByMember(memberDao.findById(2L).get());
 //		Assertions.assertEquals(expected, actual);
 //	}
+	
+	
+	@Test
+	public void testFindAllOrder() {
+		Member member=new Member();
+		member.setId(2L);
+		List<Order> rrrOrders= orderService.useMemberFindAllOrder(member);
+		System.out.println(rrrOrders);		
+	}
 }

@@ -81,20 +81,20 @@ public class ShoppingCartTest {
 //           
 //        }
               
-        List<Commodity> commodityList=new ArrayList<Commodity>(); //不要用null和collections.empty 會報錯
-          
-        for(int i=0;i<y.getJSONArray("購物車清單").length();i++) {
-        	Optional<Commodity> commodity=commodityDao.findById((long)y.getJSONArray("購物車清單").getJSONObject(i).getInt("商品ID")); 
-        	commodityList.add(commodity.get());
-        }
+//        List<Commodity> commodityList=new ArrayList<Commodity>(); //不要用null和collections.empty 會報錯
+//          
+//        for(int i=0;i<y.getJSONArray("購物車清單").length();i++) {
+//        	Optional<Commodity> commodity=commodityDao.findById((long)y.getJSONArray("購物車清單").getJSONObject(i).getInt("商品ID")); 
+//        	commodityList.add(commodity.get());
+//        }
         
              	      	
-        	shoppingCart.setMember(member.get());  //建立會員關係
-        	for(Commodity commodity:commodityList) {  //建立商品關係
-        		commodity.getShoppingCarts().add(shoppingCart);
-        		shoppingCart.getCommodities().add(commodity);
-        		commodityDao.save(commodity);  
-         	 } 	
+//        	shoppingCart.setMember(member.get());  //建立會員關係
+//        	for(Commodity commodity:commodityList) {  //建立商品關係
+//        		commodity.getShoppingCarts().add(shoppingCart);
+//        		shoppingCart.getCommodities().add(commodity);
+//        		commodityDao.save(commodity);  
+//         	 } 	
 
     		shoppingCartDao.save(shoppingCart);	
 //    		

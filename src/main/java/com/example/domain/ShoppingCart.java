@@ -11,7 +11,7 @@ import lombok.ToString;
 
 @Entity
 @Data
-@ToString(exclude= {"member"})
+@ToString(exclude= {"member"},doNotUseGetters = true)
 @Table(name = "t_shoppingcart")
 
 public class ShoppingCart {

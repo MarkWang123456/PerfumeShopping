@@ -41,7 +41,7 @@ public class MemberServiceImpl implements MemberService, UserDetailsService {
 		}else {
 			log.info("在資料庫中有找到:{}",membername);
 		} 
-		Collection<SimpleGrantedAuthority> authorites=new ArrayList<>(); //
+		Collection<SimpleGrantedAuthority> authorites=new ArrayList<>(); //SimpleGrantedAuthority:存儲String授予 Authentication對象的權限的表示。
 		member.getRoles().forEach(role ->{
 			authorites.add(new SimpleGrantedAuthority(role.getName()));
 		});

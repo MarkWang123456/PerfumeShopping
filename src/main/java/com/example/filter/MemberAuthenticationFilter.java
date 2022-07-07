@@ -1,13 +1,9 @@
 package com.example.filter;
 
-import java.awt.PageAttributes.MediaType;
 import java.io.IOException;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import javax.servlet.FilterChain;
@@ -56,8 +52,8 @@ public class MemberAuthenticationFilter extends UsernamePasswordAuthenticationFi
 		String access_token =JWT.create()
 				.withSubject(user.getUsername())  // 驗證的主题
 				.withExpiresAt(new Date(System.currentTimeMillis()+10*60*1000))  // 驗證过期的时间
-				.withIssuer(request.getRequestURI().toString())
-				.withClaim("roles",user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))  // 驗證是有谁生成
+				.withIssuer(request.getRequestURI().toString())  //设置 载荷 签名是有谁生成 這個request是誰發的
+				.withClaim("roles",user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))  // 自定义信息通过 withClaim 方法进行添加
 				.sign(algorithm);
 		String refresh_token =JWT.create()
 				.withSubject(user.getUsername())
