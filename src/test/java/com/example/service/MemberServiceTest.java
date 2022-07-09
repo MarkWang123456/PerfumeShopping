@@ -29,7 +29,7 @@ public class MemberServiceTest {
 	
 	@Test
 	@Rollback(false)
-	public void testaa() {
+	public void testAdd() {
 		Member member=new Member();
 		member.setName("大中天");
 		member.setPassword("12345");	

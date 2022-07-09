@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,5 +49,33 @@ public class OrderServiceTest {
 		member.setId(2L);
 		List<Order> rrrOrders= orderService.useMemberFindAllOrder(member);
 		System.out.println(rrrOrders);		
+	}
+
+	@Test
+	public void testFindAll(){
+		List<Order> result = orderService.findAll();
+
+		for(Order order : result)
+		System.out.println(order);
+	}
+
+	@Test
+	public void testFindAllPaging(){
+		List<Order> result = orderService.findAllPaging(0);
+
+		for(Order order : result ){
+			System.out.println(order);
+		}
+	}
+
+	@Test
+	public void testFindOrderPaging(){
+		Member member = new Member();
+		member.setId(1L);
+		Integer page = 0;
+		List<Order> result = orderService.findByMemberPaging(member, page).getContent();
+		for(Order order:result){
+			System.out.println(order);
+		}
 	}
 }
